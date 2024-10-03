@@ -1,0 +1,212 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">Shop</h2>
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Shop With Sidebar</li>
+                   </ol>
+                </nav>
+             </div>
+             <div class="col-lg-6">
+                <div class="about-slider-img">
+                   <img src="/assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <section class="ws-section-spacing">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-9 order-lg-last order-md-first">
+             <div class="shop-filter">
+                <ul class="nav nav-tabs title-bottom-spacing">
+                   <a>Short By :</a>
+                   <select [(ngModel)]="value" (change)="onChange($event)">
+                      <option value="All">All</option>
+                      <option value="LowToHigh">Low To High</option>
+                      <option value="HighToLow">High To Low</option>
+                   </select>
+                   <li><a data-toggle="tab" href="#grid" class="active"><i class="flaticon-grid"></i></a></li>
+                   <li><a data-toggle="tab" href="#list" class=""><i class="flaticon-list-1"></i></a></li>
+                </ul>
+                <div class="tab-content">
+                   <!--Grid-->
+                   <div id="grid" class="tab-pane fade in active show">
+                      <div class="row justify-content-sm-center">
+                         <!--item-->
+                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-10" *ngFor="let p of productsEtoile | paginate:{ itemsPerPage:9,currentPage:page,totalItems:totalLength}">
+                            <div class="new-collection-item">
+                               <div class="new-collection-item-img" style="height: 254px;">
+                                  <button class="wishlist noselect" (click)="ajoutFavoris(p.id)">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="-1 -1 26 26">
+                                        <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"></path>
+                                     </svg>
+                                  </button>
+                                  <img src="http://localhost:3600/retriveImage/{{p.id}}" (click)="detailProduct(p.id)" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: zoomIn;">
+                                  <a (click)="ajouterPannier(p)" class="add-to-cart" ><i class="fas fa-cart-plus"></i>Add To Cart</a>
+                               </div>
+                               <div class="new-collection-item-content">
+                                 <ul class="item-rating" *ngIf="p.nbreEtoile==0">
+                                    <li><i class="far fa-star"></i>
+                                    </li>
+                                    <li><i class="far fa-star"></i>
+                                    </li>
+                                    <li><i class="far fa-star"></i>
+                                    </li>
+                                    <li><i class="far fa-star"></i>
+                                    </li>
+                                    <li><i class="far fa-star"></i>
+                                    </li>
+                                 </ul>
+                                 <ul class="item-rating" *ngIf="p.nbreEtoile==1">
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                </ul>
+                                <ul class="item-rating" *ngIf="p.nbreEtoile==2">
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                </ul>
+                                <ul class="item-rating" *ngIf="p.nbreEtoile==3">
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                </ul>
+                                <ul class="item-rating" *ngIf="p.nbreEtoile==4">
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="far fa-star"></i>
+                                   </li>
+                                </ul>
+                                <ul class="item-rating" *ngIf="p.nbreEtoile==5">
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                   <li><i class="fas fa-star"></i>
+                                   </li>
+                                </ul>
+                                  <h5>{{p.nomProduit}}</h5>
+                                  <span>${{p.prix}}</span>
+                               </div>
+                            </div>
+                         </div>
+                         <!--item-->
+                         
+                      </div>
+                   </div>
+                   <!--list-Products-->
+                   <div id="list" class="tab-pane fade">
+                      <div class="row">
+                         <!--item-->
+                         <div class="col-lg-12" *ngFor="let p of productsEtoile | paginate:{ itemsPerPage:9,currentPage:page,totalItems:totalLength}">
+                            <div class="list-border">
+                               <div class="row">
+                                  <div class="col-lg-4 col-md-6 col-sm-6">
+                                     <div class="product-list-bg" style="height: 254px;">
+                                        <a><img src="http://localhost:3600/retriveImage/{{p.id}}" (click)="detailProduct(p.id)" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: zoomIn;"></a>
+                                     </div>
+                                  </div>
+                                  <div class="col-lg-8 col-md-6 col-sm-6">
+                                     <div class="product-list-content">
+                                        <h5><a href="#">{{p.marque}}</a></h5>
+                                        <span>{{p.nomProduit}}</span>
+                                        <h4 class="price-text">${{p.prix}}</h4>
+                                        <p class="list-content">{{p.description}}</p>
+                                        <a class="add-cart" (click)="ajouterPannier(p)"><i class="fas fa-cart-plus"></i> Add To Cart</a>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                         <!--item-->
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <!---pagination-->
+             <pagination-controls class="my-pagination text-center"
+              previousLabel="Prev" 
+              nextLabel="Next" 
+              (pageChange)="page=$event"
+              ></pagination-controls>
+             <!--paginationTemplate-->
+             
+             <!--paginationTemplate-->
+         
+          </div>
+          <!--side-bar-->
+          <div class="col-lg-3 order-lg-first order-md-last">
+             <div class="sidebar-Categories">
+                <h5>Categories</h5>
+                <div id="accordion">
+                    <!--card-->
+                   <div class="card" *ngFor="let c of categorys;index as i">
+                      <div class="card-header" [attr.id]="'headingOne' +i">
+                         <p class="mb-0">
+                            <button class="btn btn-link collapsed" (click)="displayProductsCat(c.id)" data-toggle="collapse" [attr.data-target]="'#collapseOne' +i" aria-expanded="true" [attr.aria-controls]="'collapseOne' +i">
+                            {{c.nom_categorie}}
+                            </button>
+                         </p>
+                      </div>
+                      <div [attr.id]="'collapseOne' +i" class="collapse show" [attr.aria-labelledby]="'headingOne' +i" data-parent="#accordion">
+                         <div class="card-body">
+                            <ul *ngIf="idCat==c.id">
+                               <li *ngFor="let pc of productsCat"><a (click)="displayProduitCatParMarque(c.id,pc.marque)">{{pc.marque}}</a> </li>
+                            </ul>
+                         </div>
+                      </div>
+                   </div>
+                   <!--/card-->
+                </div>
+             </div>
+             <!--Select Brands-->
+             <div class="sidebar-Categories">
+                <h5>Select Brands</h5>
+                <ul class="brand-name" *ngFor="let p of brands">
+                   <li><span class="brand-dot"></span><a (click)="displayProduitParMarque(p.marque)">{{p.marque}}</a></li>
+                </ul>
+             </div>
+             <!--Select-Size-->
+          </div>
+       </div>
+    </div>
+ </section>

@@ -1,0 +1,65 @@
+<div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Modifier produit</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form [formGroup]="registerForm" (ngSubmit)="ModifierProduit()">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleInputMarque"> marque</label>
+          <input type="text" class="form-control" id="marque" formControlName="marque" [(ngModel)]="produit.marque" placeholder="Entrer marque" [ngClass]="{ 'is-invalid': submitted && f.marque.errors }">
+          <div *ngIf="submitted && f.marque.errors" class="invalid-feedback">
+            <div *ngIf="f.marque.errors.required">marque is required</div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputMarque"> nom produit</label>
+          <input type="text" class="form-control" id="nomProduit" formControlName="nomProduit" [(ngModel)]="produit.nomProduit" placeholder="Entrer nom produit" [ngClass]="{ 'is-invalid': submitted && f.nomProduit.errors }">
+          <div *ngIf="submitted && f.nomProduit.errors" class="invalid-feedback">
+            <div *ngIf="f.nomProduit.errors.required">nom produit is required</div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPrix">Prix</label>
+          <input type="text" class="form-control" id="prix" formControlName="prix" placeholder="Entrer prix" [(ngModel)]="produit.prix" [ngClass]="{ 'is-invalid': submitted && f.prix.errors }">
+          <div *ngIf="submitted && f.prix.errors" class="invalid-feedback">
+            <div *ngIf="f.prix.errors.required">prix is required</div>
+            <div *ngIf="f.prix.errors.pattern">prix must be numeric</div>
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputDescription">Description</label>
+            <input type="text" class="form-control" id="description" formControlName="description" placeholder="décrire le produit"[(ngModel)]="produit.description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }">
+            <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+              <div *ngIf="f.description.errors.required">description is required</div>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombrePiece">Nombre de piece</label>
+            <input type="number" class="form-control" id="nbre_piece" formControlName="nbre_piece" placeholder="Entrer le nombre de pieces"[(ngModel)]="produit.nbre_piece" [ngClass]="{ 'is-invalid': submitted && f.nbre_piece.errors }">
+            <div *ngIf="submitted && f.nbre_piece.errors" class="invalid-feedback">
+              <div *ngIf="f.nbre_piece.errors.required">nombre de pieces is required</div>
+              <div *ngIf="f.nbre_piece.errors.pattern">nom de pieces must be numeric</div>
+          </div>
+          </div>
+        <div class="form-group">
+          <label for="exampleInputFile">photo</label>
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="exampleInputFile" formControlName="image" [(ngModel)]="image" (change)="onFileChanged($event)">
+              <label class="custom-file-label" for="exampleInputFile">Choisir fichier</label>
+              
+            </div>
+          </div>
+        </div>
+        <div class="form-check">
+        </div>
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Modifier</button>
+      </div>
+    </form>
+  </div>

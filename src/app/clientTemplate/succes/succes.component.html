@@ -1,0 +1,85 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">Shop</h2>
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Invoice</li>
+                   </ol>
+                </nav>
+             </div>
+             <div class="col-lg-6">
+                <div class="about-slider-img">
+                   <img src="/assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <section class="ws-section-spacing">
+    <div class="container">
+       <div class="row">
+          <div class="my-cart">
+              <div class="row">
+             <div class="col-lg-4" style="border:2px solid;margin-bottom: 30px;border-color: black;border-radius: 10px 10px 10px 10px ;position: relative;width: 400px; height: 200px;">
+               <div style="margin-top: 20px;margin-left: 20px;color: #212121;font-size: 14px;letter-spacing: 0.5px;font-weight: 600;font-family: 'Poppins', sans-serif;">{{commande.email}}</div>
+               <div style="margin-top: 5px;margin-left: 20px;color: #212121;font-size: 14px;letter-spacing: 0.5px;font-weight: 600;font-family: 'Poppins', sans-serif;">{{commande.phone_number}}</div>
+               <div style="margin-top: 5px;margin-left: 20px;color: #212121;font-size: 14px;letter-spacing: 0.5px;font-weight: 600;font-family: 'Poppins', sans-serif;">{{commande.first_name}} {{commande.last_name}}</div>
+               <div style="margin-top: 5px;margin-left: 20px;color: #212121;font-size: 14px;letter-spacing: 0.5px;font-weight: 600;font-family: 'Poppins', sans-serif;">{{commande.address}}</div>
+               <div style="margin-top: 5px;margin-left: 20px;color: #212121;font-size: 14px;letter-spacing: 0.5px;font-weight: 600;font-family: 'Poppins', sans-serif;">{{commande.post_code}} {{commande.city}}</div>
+            </div>
+            <div class="col-lg-5"></div>
+            <div class="col-lg-3" style="margin-bottom: 30px;border-color: black;border-radius: 10px 10px 10px 10px ;position: relative;width: 400px; height: 200px;">
+            <div style="font-size: xxx-large;"> Invoice  </div>
+            <div style="margin-top: 0px;" class="row">
+                <div class="col-lg-3"> F{{commande.id}}</div>
+                <div class="col-lg-2"> of</div>
+                 <div class="col-lg-7"> {{date_commande}}</div>
+            </div>
+            </div>
+            </div>
+            <table class="table-responsive">
+                <thead>
+                   <tr>
+                      <th class="cart-name">Ref</th>
+                      <th class="cart-name">Marque</th>
+                      <th class="cart-name">Description</th>
+                      <th class="cart-name">Price</th>
+                      <th class="cart-name">Quantity</th>
+                      <th class="cart-name">Total</th>
+                   </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let ci of commandeItems">
+                      <td class="cart-action">
+                         {{ci.nomProduit}}
+                      </td>
+                      <td class="cart-action">{{ci.marque}}</td>
+                      <td class="cart-action">{{ci.description}}</td>
+                      <td class="cart-action">
+                         ${{ci.prix}}
+                      </td>
+                      <td class="cart-action">
+                     {{ci.quantite}}
+                      </td>
+                      <td class="cart-action">${{ci.prix*ci.quantite}}</td>
+                   </tr>
+                   <!--item-->
+                   
+                </tbody>
+             </table>
+             <div class="total-price justify-content-between row">
+                <div class="grand-total col-lg-3">Grand Total : ${{grandtotal}}</div>
+                <div class="col-lg-7"></div>
+                <div class="col-lg-2">
+                    <button class="btn-success" (click)="generatePdf()"> <i class="fa fa-file-pdf" style="margin-right: 5px;"></i>generatePdf</button>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>

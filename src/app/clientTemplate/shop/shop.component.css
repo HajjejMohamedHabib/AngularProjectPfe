@@ -1,0 +1,20 @@
+.my-pagination /deep/ .ngx-pagination .current {
+    background:#f05036;
+  }
+
+  .my-pagination {
+    padding-left: 0px !important;
+  }
+  
+  .my-pagination .current,
+  .btn-info {
+    background: #17a2b8 !important;
+    border: transparent !important;
+    border-radius: 20px !important;
+  }
+  
+  .my-pagination .current:hover {
+    background: #17a2b8 !important;
+    border-radius: 20px !important; 
+    border: transparent !important;
+  }

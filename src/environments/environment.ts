@@ -3,9 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+// Stripe Publishable key
+  stripe: 'pk_test_51JXagqFT5nxBdB72G1uusXPsrRSJINenZWYznjj6588xa36bEruPtwA1DEzbIjk4ACo9RR9HgEtkgSIfh8wkEunG00dkqp5gnU',
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

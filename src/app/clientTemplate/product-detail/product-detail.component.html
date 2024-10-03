@@ -1,0 +1,178 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">Product Detail</h2>
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
+                   </ol>
+                </nav>
+             </div>
+             <div class="col-lg-6">
+                <div class="about-slider-img">
+                   <img src="assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <section class="ws-section-spacing product-detail-page">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-6 col-md-6">
+             <div class="row wow fadeInUp" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInUp;">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                   <div class="product-img-nav-slider">
+                      <div class="slider-nav slick-initialized slick-slider"><div class="slick-list draggable" style="padding: 0px 50px;"><div class="slick-track" style="opacity: 1; width: 99px; transform: translate3d(17px, 0px, 0px);"><div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 33px;" tabindex="-1"><div><div class="product-img-nav" style="width: 100%; display: inline-block;">
+                            
+                         </div></div></div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 33px;" tabindex="-1"><div><div class="product-img-nav" style="width: 100%; display: inline-block;">
+                           
+                         </div></div></div><div class="slick-slide slick-current slick-center" data-slick-index="2" aria-hidden="true" style="width: 33px;"><div><div class="product-img-nav" style="width: 100%; display: inline-block;">
+                           
+                         </div></div></div></div></div></div>
+                   </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                   <div class="product-img-slider">
+                      <div class="slider-for slick-initialized slick-slider"><div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 870px;"><div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 260px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;" tabindex="-1"><div><div class="p-img" style="width: 100%; display: inline-block;">
+                            <img src="http://localhost:3600/retriveImage/{{id}}" alt="">
+                         </div></div></div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 260px; position: relative; left: -290px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"><div><div class="p-img" style="width: 100%; display: inline-block;">
+                            <img src="http://localhost:3600/retriveImage/{{id}}" alt="">
+                         </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="false" style="width: 260px; position: relative; left: -580px; top: 0px; z-index: 1000; opacity: 1; transition: opacity 500ms ease 0s;" tabindex="-1"><div><div class="p-img" style="width: 100%; display: inline-block;">
+                            <img src="http://localhost:3600/retriveImage/{{id}}" alt="">
+                         </div></div></div></div></div></div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <!--product-detail-->
+          <div class="col-lg-6 col-md-6">
+             <div class="product-detail">
+                <h5>{{productEtoile.nomProduit}}</h5>
+                <p>{{productEtoile.marque}}</p>
+                <div class="Start">
+                  <ul class="item-rating" *ngIf="productEtoile.nbreEtoile==0">
+                     <li><i class="far fa-star"></i>
+                     </li>
+                     <li><i class="far fa-star"></i>
+                     </li>
+                     <li><i class="far fa-star"></i>
+                     </li>
+                     <li><i class="far fa-star"></i>
+                     </li>
+                     <li><i class="far fa-star"></i>
+                     </li>
+                  </ul>
+                  <ul class="item-rating" *ngIf="productEtoile.nbreEtoile==1">
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                 </ul>
+                 <ul class="item-rating" *ngIf="productEtoile.nbreEtoile==2">
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                 </ul>
+                 <ul class="item-rating" *ngIf="productEtoile.nbreEtoile==3">
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                 </ul>
+                 <ul class="item-rating" *ngIf="productEtoile.nbreEtoile==4">
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="far fa-star"></i>
+                    </li>
+                 </ul>
+                 <ul class="item-rating" *ngIf="productEtoile.nbreEtoile==5">
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                    <li><i class="fas fa-star"></i>
+                    </li>
+                 </ul>
+                </div>
+                <div class="product-detail-price">
+                   <h3>${{productEtoile.prix}}</h3>
+                </div>
+                <div class="stock">
+                   <p>Availability : <span *ngIf="productEtoile.nbre_piece>0">IN STOCK</span>
+                    <span *ngIf="productEtoile.nbre_piece==0">NOT AVAILABLE IN STOCK</span>
+                </p>
+                </div>
+                <p class="product-discription">{{productEtoile.description}}</p>
+                <div class="p-button">
+                   <a class="curs" (click)="ajouterPannier(productEtoile)">Add To Cart</a>
+                </div>
+                <div class="share-icon">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ 
+ <section class="ws-section-spacing">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12">
+                  <h3 class="title">Trending Products</h3>
+                  <div class="saprater title-bottom-spacing">
+                     <ul>
+                        <li class="saprater-box"></li>
+                        <li class="saprater-box"></li>
+                        <li class="saprater-box"></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <!--item-->
+            <div class="row">
+               <div class="col-lg-12">
+                  <ng-image-slider #nav
+                  [imagePopup]="false"
+                  [images]="images"
+                  [infinite]="false"
+                  [autoSlide]="1"
+                  [imageSize]="{width: '25%', height: 200}"
+                  slideImage="1" (imageClick)="yourfunctionName($event)"></ng-image-slider>
+               </div>
+            </div>
+         </div>
+      </section>

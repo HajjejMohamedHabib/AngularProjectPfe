@@ -1,0 +1,58 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">Order History</h2>
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Order History</li>
+                   </ol>
+                </nav>
+             </div>
+             <div class="col-lg-6">
+                <div class="about-slider-img">
+                   <img src="/assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+<section class="ws-section-spacing">
+    <div class="container">
+       <div class="row">
+          <div class="my-cart order-card">
+             <h2>Shopping Cart</h2>
+             <table class="table-responsive">
+                <thead>
+                   <tr>
+                    <th>#</th>
+                    <th>Order_date</th>
+                    <th>Price</th>
+                    <th>État</th>
+                    <th></th>
+                    <th></th>
+                   </tr>
+                </thead>
+                <tbody class="order-history">
+                   <tr *ngFor="let commande of listCommande">
+                      <td class="">{{commande.id}}</td>
+                      <td>{{commande.date_commande}}</td>
+                      <td>{{commande.prix}}</td>
+                      <td>
+                        <div *ngIf="commande.etat==true; else elseBlock">Approvée</div>
+    <ng-template #elseBlock>Non Approvée</ng-template>
+                      </td>
+                      <td class="aaa">
+                        <a (click)="detailCommande(commande.id)">detail</a>
+                      </td>
+                    </tr>
+                   <!--item-->
+                </tbody>
+             </table>
+          </div>
+       </div>
+    </div>
+ </section>

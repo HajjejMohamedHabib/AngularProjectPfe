@@ -1,0 +1,105 @@
+
+<!-- <section class="section-spacing service-area">
+    <div class="container">
+       <div class="row service-border wow fadeInUp" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1">
+          <div class="col-lg-3 col-sm-6">
+             <div class="single-service-wrap">
+                <div class="thumb">
+                   <img src="/assets/assetsFront/images/01.png" alt="img">
+                </div>
+                <div class="wrap-details">
+                   <h5>Customer Support</h5>
+                   <p>Lorem ipsum dolor sit amet adipisicing elit.</p>
+                </div>
+             </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+             <div class="single-service-wrap">
+                <div class="thumb">
+                   <img src="/assets/assetsFront/images/02.png" alt="img">
+                </div>
+                <div class="wrap-details">
+                   <h5>Secured Payment</h5>
+                   <p>Lorem ipsum dolor sit amet adipisicing elit.</p>
+                </div>
+             </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+             <div class="single-service-wrap">
+                <div class="thumb">
+                   <img src="/assets/assetsFront/images/03.png" alt="img">
+                </div>
+                <div class="wrap-details">
+                   <h5>Free Home Delivery</h5>
+                   <p>Lorem ipsum dolor sit amet adipisicing elit.</p>
+                </div>
+             </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+             <div class="single-service-wrap">
+                <div class="thumb">
+                   <img src="/assets/assetsFront/images/04.png" alt="img">
+                </div>
+                <div class="wrap-details">
+                   <h5>30 Day Reuters</h5>
+                   <p>Lorem ipsum dolor sit amet adipisicing elit.</p>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section> -->
+ <!---Start-Footer-Section-->
+ <footer class="footer-section-spacing home-footer-bg">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-3 col-md-4">
+             <div class="footer-about">
+                <img src="/assets/assetsFront/images/CaptureSs.png" alt="">
+                <p>Med Store is your best platform for shopping online</p>
+             </div>
+          </div>
+          <!--item-->
+          <div class="col-lg-3 col-md-4">
+             <div class="popular-tag">
+                <h4 class="footer-title">Populer Tags</h4>
+                <ul>
+                   <li *ngFor="let cat of categories"><a class="curs" (click)="afficheProductParCat(cat.id)">{{cat.nom_categorie}}</a>
+                   </li>
+                   
+                </ul>
+             </div>
+          </div>
+          <!--item-->
+          <div class="col-lg-3 col-md-4">
+             <div class="contact-us">
+                <h4 class="footer-title">Contact-Us</h4>
+                <ul>
+                   <li><i class="fas fa-map-marker-alt"></i>{{admin.address}},</li>
+                   <li><i class="fa fa-phone"></i>(+216) {{admin.phone_number}}</li>
+                   <li><i class="fas fa-envelope"></i> {{admin.mail}}</li>
+                </ul>
+             </div>
+          </div>
+          <!--item-->
+          <div class="col-lg-3 col-md-4">
+             <div class="contact-us">
+                <h4 class="footer-title">Contact-Us</h4>
+                <p>go to the administrator contact page to send him a message </p>
+                <button type="submit" class="contact-btn" routerLink="/contactUs">Contact</button>
+             </div>
+          </div>
+          <!--copy-right-->
+          <div class="container">
+             <div class="row justify-content-center">
+                <div class="container-fluid">
+                   <div class="copy-right">
+                      <span class="copy-right-seprater"></span>
+                      <p>2021 . All Rights Reserved Developed By Med Store.</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </footer>

@@ -1,0 +1,180 @@
+<header class="main-header">
+    <!--Nav-Bar-->
+    
+    <!--Nav-Bar-->
+    <div class="header-fixed header-one">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-2 col-md-12 col-sm-12">
+                <div class="nav-brand">
+                   <a href="#"><img src="assets/assetsFront/images/CaptureSs.png" alt="" class="logo"></a>
+                </div>
+             </div>
+             <div class="col-lg-6">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                   <div class="collapse navbar-collapse my-lg-0" id="navbarNav">
+                      <ul class="navbar-nav mr-auto text-left">
+                         <li class="nav-item">
+                            <a class="nav-link scroll" routerLink="">Home</a>
+                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link scroll" routerLink="shop">Shop</a>
+                         </li>
+                         <li class="nav-item">
+                        
+                            <a class="nav-link scroll">Category</a>
+                            <ul >
+                              <li *ngFor="let cat of categories" (mouseenter)="afficheProduct(cat.id)">
+                                 <a> {{cat.nom_categorie}} </a>
+                                    <ul>
+                                      <li *ngFor="let p of produits" (mouseenter)="afficheProductM(p.marque,cat.id)">
+                                        <a class="curs" (click)="afficheProduitsParMarque(p.marque,cat.id)">{{p.marque}}</a>
+                                        <ul>
+                                           <li *ngFor="let pm of produitsM">
+                                              <a class="curs" (click)="detailProduct(p.id)">{{pm.nomProduit}}</a>
+                                           </li>
+                                        </ul>
+                                       </li>
+                                       
+                                    </ul>     
+                                 
+                                 
+                               
+                              </li>
+                              
+                           </ul>
+                      
+                         </li>
+                        
+                         <li class="nav-item">
+                            <a class="nav-link scroll" routerLink="/aboutUs">About</a>
+                           
+                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link scroll" routerLink="/contactUs">Contact</a>
+                         </li>
+                         <li class="nav-item">
+                            <a routerLink="pannier" class="nav-link scroll" role="menuitem" tabindex="-1">
+                                <i class="fa fa-shopping-cart"><label class="panier"></label></i>
+                                <span class="badge badge-warning navbar-badge"style="position:absolute !important;padding-top:13px;">{{nbreItemPannier}}</span>
+                            </a>
+                            
+                         </li>
+                      </ul>
+                   </div>
+                </nav>
+             </div>
+             <div class="col-lg-1" style="position: relative;
+             padding-left: 70px;">
+                <div class="login-cart">
+                   <a class="nav-user" routerLink="/login"><i class="far fa-user"></i></a>
+                </div>
+             </div>
+             <div class="col-lg-3 Bienvenue row"><div class="col-lg-6 mm">Welcome,</div> 
+                <div class="dropdown col-lg-6 nn" *ngIf="responseStr!=null">
+                    <a href="" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {{first_name}} {{last_name}}
+                     </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" routerLink="detailCompteClient">My Account</a>
+                      <a class="dropdown-item" routerLink="listFavoris">Wish List</a>
+                      <a class="dropdown-item" (click)="orderhistory()">Order History</a>
+                      <a class="dropdown-item" (click)="deconnexion()">Log Out</a>
+                    </div>
+                  </div>
+             </div>
+             <div class="mobile-menu" data-logo="assets/assetsFront/images/logo.png"><div class="slicknav_menu"><div class="slicknav_brand"><img src="assets/assetsfront/images/logo.png" class="img-fluid" alt="logo"></div><a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" style="outline: none;"><span class="slicknav_menutxt"></span><span class="slicknav_icon slicknav_no-text"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
+                         <li>
+                            <a href="index.html" role="menuitem" tabindex="-1">Home</a>
+                         </li>
+                         <li>
+                            <a href="https://weblizar.com/" role="menuitem" tabindex="-1">Shop</a>
+                         </li>
+                         <li>
+                            <a href="about-us.html" role="menuitem" tabindex="-1">About</a>
+                         </li>
+                         <li class="slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style="outline: none;">
+                            <a href="#" tabindex="-1">Pages</a>
+                            <span class="slicknav_arrow"><i class="fa fa-angle-right"><i></i></i></span></a><ul role="menu" class="slicknav_hidden" aria-hidden="true" style="display: none;">
+                               <div>
+                                  <div>
+                                     <h5>Categories 2</h5>
+                                     <ul>
+                                        <li>
+                                           <a href="my-cart.html" role="menuitem" tabindex="-1">My Cart</a>
+                                        </li>
+                                        <li>
+                                           <a href="check-out.html" role="menuitem" tabindex="-1">Check Out</a>
+                                        </li>
+                                        <li>
+                                           <a href="order-history.html" role="menuitem" tabindex="-1">Order History</a>
+                                        </li>
+                                        <li>
+                                           <a href="shop-side-bar.html" role="menuitem" tabindex="-1">Shop With Sidebar</a>
+                                        </li>
+                                        <li>
+                                           <a href="tracking.html" role="menuitem" tabindex="-1">Tracking</a>
+                                        </li>
+                                        <li>
+                                           <a href="product-detail.html" role="menuitem" tabindex="-1">Product detail</a>
+                                        </li>
+                                     </ul>
+                                  </div>
+                                  <div>
+                                     <h5>Categories 1</h5>
+                                     <ul>
+                                        <li>
+                                           <a href="blog-grid.html" role="menuitem" tabindex="-1">Blog Grid</a>
+                                        </li>
+                                        <li>
+                                           <a href="blog-with-sidebar.html" role="menuitem" tabindex="-1">Blog With Sidebar</a>
+                                        </li>
+                                        <li>
+                                           <a href="blog-detail.html" role="menuitem" tabindex="-1">Blog Detail</a>
+                                        </li>
+                                        <li><a href="https://weblizar.com/vue/riode/demo-1/shop/navigation-filter" role="menuitem" tabindex="-1">
+                                           Navigation Filter
+                                           <span>Hot</span></a>
+                                        </li>
+                                        <li>
+                                           <a href="https://weblizar.com/vue/riode/demo-1/shop/off-canvas" role="menuitem" tabindex="-1">
+                                              Off-Canvas Filter
+                                              <!---->
+                                           </a>
+                                        </li>
+                                        <li>
+                                           <a href="https://weblizar.com/vue/riode/demo-1/shop/right-sidebar" role="menuitem" tabindex="-1">
+                                              Right Toggle Sidebar
+                                              <!---->
+                                           </a>
+                                        </li>
+                                     </ul>
+                                  </div>
+                                  <div>
+                                     <img alt="Menu banner" src="assets/assetsFront/images/nav-banner.jpg" lazy="loaded" style="animation-duration: .3s; animation-delay: 0s">
+                                  </div>
+                               </div>
+                            </ul>
+                         </li>
+                         <li class="slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style="outline: none;">
+                            <a href="#" tabindex="-1">Blogs</a>
+                            <span class="slicknav_arrow"><i class="fa fa-angle-right"><i></i></i></span></a><ul role="menu" class="slicknav_hidden" aria-hidden="true" style="display: none;">
+                               <li>
+                                  <a href="blog-grid.html" role="menuitem" tabindex="-1">Blog Grid</a>
+                               </li>
+                               <li>
+                                  <a href="blog-with-sidebar.html" role="menuitem" tabindex="-1">Blog With Sidebar</a>
+                               </li>
+                               <li>
+                                  <a href="blog-detail.html" role="menuitem" tabindex="-1">Blog Detail</a>
+                               </li>
+                            </ul>
+                         </li>
+                         <li>
+                            <a href="contact-us.html" role="menuitem" tabindex="-1">Contact</a>
+                         </li>
+                      </ul></div></div>
+          </div>
+       </div>
+    </div>
+ </header>

@@ -1,0 +1,80 @@
+a.nav-user{
+    margin-right: 144px !important;
+}
+.Bienvenue{
+    color: #212121;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    padding-top: 25px;
+}
+.mm{
+    position: relative;
+    padding-left: 14px;
+    margin-right: -10px;
+}
+.nn{
+    position: relative;
+    padding-left: 0px;
+}
+.logo {
+    padding: 2px 0 !important;
+}
+.navbar-nav{
+    top: 10px !important;
+}
+.panier{
+    color: #212121;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+	}
+    nav ul li{
+        display:inline-block;
+        background-color:white;
+        }
+        nav a {
+            display:block;
+            padding:0 10px;	
+            color:#212121;
+            font-size:20px;
+            line-height: 60px;
+            text-decoration:none;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute; 
+            top: 60px; 
+        }
+        /* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+	
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+/* Second, Third and more Tiers	*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px; 
+	left:170px;
+}
+.curs{
+    cursor: pointer;
+}
+        

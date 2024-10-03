@@ -1,0 +1,29 @@
+export class Commande{
+    id;
+    date_commande;
+    first_name;
+	last_name;
+    city;
+    country;
+    post_code;
+    email;
+    address;
+    phone_number;
+    company_name;
+    prix;
+    client;
+    date_com;
+    constructor(first_name,last_name,city,country,post_code,email,address,phone_number,
+        company_name,client){
+      this.first_name=first_name;
+      this.last_name=last_name;
+      this.city=city;
+      this.country=country;
+      this.post_code=post_code;
+      this.email=email;
+      this.address=address;
+      this.phone_number=phone_number;
+      this.company_name=company_name;
+      this.client=client;
+    }
+}

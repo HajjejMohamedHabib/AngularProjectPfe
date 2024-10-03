@@ -1,0 +1,98 @@
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-md-12 d-flex justify-content-end">
+            
+                  <a routerLink="/ajout">Add Customer</a>
+                
+             
+          </div><!-- /.col -->
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-12 d-flex justify-content-end">
+              
+                    <a routerLink="/ajoutVendeur">Add Vendor</a>
+                  
+               
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">User List</h3>
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" [(ngModel)]="searchInput" class="form-control float-right" placeholder="Search">
+
+               <div class="input-group-append">
+                  <!--<button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                  </button>-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>E-mail</th>
+                  <th>Last Name</th>
+                  <th>First Name</th>
+                  <th>Phone Number</th>
+                  <th>Address</th>
+                  <th>Role</th>
+                  <th>State</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users | filter:searchInput">
+                  <td>{{user.id}}</td>
+                  <td>{{user.mail}}</td>
+                  <td>{{user.first_name}}</td>
+                  <td>{{user.last_name}}</td>
+                  <td>{{user.phone_number}}</td>
+                  <td>{{user.address}}</td>
+                  <td>{{user.role}}</td>
+                  <td>
+                    <div *ngIf="user.actif==true; else elseBlock">Actif</div>
+<ng-template #elseBlock>Désactif</ng-template>
+                  </td>
+                  <!-- <td><button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"(click)="modifier(user.id)"><i class="fa fa-edit"></i></button>
+                    
+                  </td> -->
+                  <td>
+                    <div *ngIf="user.actif==true; else elseBlock1">
+                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Bannir"(click)="bannir(user.id)">
+                      <i class="fa fa-user-slash"></i>
+                    </button>
+                    </div>
+                    <ng-template #elseBlock1>
+                      <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Activer"(click)="activer(user.id)">
+                        <i class="fa fa-user"></i>
+                      </button>
+                    </ng-template>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger btn-sm rounded-0"  type="button" data-toggle="tooltip" data-placement="top" title="Delete"(click)="deleteUser(user.id)">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>

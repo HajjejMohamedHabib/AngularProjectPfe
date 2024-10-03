@@ -1,0 +1,132 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="banner-title">Checkout</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-slider-img">
+                        <img src="assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ws-section-spacing">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title-bottom-spacing">Billing Detail</h2>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <form [formGroup]="registerForm" (ngSubmit)="ajouterCommande()">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="firstName" class="form-control" required=""  placeholder="First Name"[(ngModel)]="first_name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name"[(ngModel)]="last_name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="email" formControlName="email" class="form-control" placeholder="Email"[(ngModel)]="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="phone" formControlName="phoneNumber" class="form-control" placeholder="Phone Number"[(ngModel)]="phone_number" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+                                <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                                    <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+                                    <div *ngIf="f.phoneNumber.errors.pattern">Phone Number must be numeric</div>
+                                    <div *ngIf="f.phoneNumber.errors.minlength">Phone Number must be 8 characters</div>
+                                    <div *ngIf="f.phoneNumber.errors.maxlength">Phone Number must be 8 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="text" formControlName="address" class="form-control" placeholder="Address"[(ngModel)]="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                                    <div *ngIf="f.address.errors.required">Address is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="text" formControlName="companyName" class="form-control" placeholder="Company Name"[(ngModel)]="company_name">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="text" formControlName="city" class="form-control" placeholder="Town/City"[(ngModel)]="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                    <div *ngIf="f.city.errors.required">City is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="country" class="form-control" placeholder="State/Country"[(ngModel)]="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                                <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                                    <div *ngIf="f.country.errors.required">Country is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="postCode" class="form-control" placeholder="Postcode"[(ngModel)]="post_code" [ngClass]="{ 'is-invalid': submitted && f.postCode.errors }">
+                                <div *ngIf="submitted && f.postCode.errors" class="invalid-feedback">
+                                    <div *ngIf="f.postCode.errors.required">Post Code is required</div>
+                                    <div *ngIf="f.postCode.errors.pattern">Post Code must be numeric</div>
+                                    <div *ngIf="f.postCode.errors.minlength">Post Code must be 4 characters</div>
+                                    <div *ngIf="f.postCode.errors.maxlength">Post Code must be 4 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Now</button>
+                </form>
+                
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="checkout-card">
+                    <ul>
+                        <li class="chechout-title">Product <span class="chechout-span">Total</span></li>
+                        <li>
+                            <ul class="chechout-item">
+                                <li *ngFor="let p of pannier">
+                                    <img src="http://localhost:3600/retriveImage/{{p.id}}" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: zoomIn;">{{p.marque}} x {{p.quantite}}<span>${{p.prix*p.quantite}}</span></li>
+                               
+                            </ul>
+                        </li>
+                        <li class="chechout-shiping">Shiping<span class="Subtotal">Shpping Free</span></li>
+                        <li class="chechout-total">Total<span class="Subtotal">${{totalPrix}}</span></li>
+                    </ul>
+                    <a (click)="pay()"  class="proceed-to-checkout disabled">Proceed To Payment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -6,8 +6,145 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 </head>
-<body>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <app-root></app-root>
 </body>
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/assets/js/adminlte.js"></script>
+
+<!-- PAGE PLUGINS -->
+<!-- jQuery Mapael -->
+<script src="/assets/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="/assets/plugins/raphael/raphael.min.js"></script>
+<script src="/assets/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="/assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<!-- ChartJS -->
+<script src="/assets/plugins/chart.js/Chart.min.js"></script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="/asssets/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/assets/js/pages/dashboard2.js"></script>
+      <!-- Jquery.min.js-->
+      <script src="/assets/assetsFront/js/jquery.1.12.4.js"></script>
+      <!--bootstrap.min.js-->
+      <script src="/assets/assetsFront/js/bootstrap.min.js"></script>
+      <!--slicknav.min.js-->
+      <script src="/assets/assetsFront/js/jquery.slicknav.min.js"></script>
+      <!--slickslider.min.js-->
+      <script src="/assets/assetsFront/js/slick.min.js"></script>
+      <!-- magnific-popup.js -->
+      <script src="/assets/assetsFront/js/lity.min.js"></script>
+      <!-- imagesloaded.js -->
+      <script src="/assets/assetsFront/js/imagesloaded.js"></script>
+      <!-- wow.js -->
+      <script src="/assets/assetsFront/js/wow.min.js"></script>
+      <!--isotope.min.js-->
+      <!--  <script src="js/isotope.min.js"></script> -->
+      <!-- main.js -->
+      <script src="/assets/assetsFront/js/main.js"></script>
+      <!--dropdownjs-->
+      <script src="/assets/js/jquery.min.js"></script>
+      <script src="/assets/js/bootstrap.bundle.min.js"></script>
+      <script src="/assets/js/perfect-scrollbar.jquery.min.js"></script>
+      <script src="/assets/js/waves.js"></script>
+      <script src="/assets/js/sidebarmenu.js"></script>
+      <script src="/assets/js/custom.min.js"></script>
+      <script src="/assets/js/raphael-min.js"></script>
+      <script src="/assets/js/morris.min.js"></script>
+      <script src="/assets/js/jquery.sparkline.min.js"></script>
+      <script src="/assets/js/jquery.toast.js"></script>
+      <script src="/assets/js/dashboard1.js"></script>
+      <!--/dropdownjs-->
+      <script type="application/javascript">
+        var global = window;
+      </script>
+<!--AutoComplete-->
+<script>
+          // This example displays an address form, using the autocomplete feature
+          // of the Google Places API to help users fill in the information.
+   
+          // This example requires the Places library. Include the libraries=places
+          // parameter when you first load the API. For example:
+          // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+   
+          var placeSearch, autocomplete;
+          var componentForm = {
+              street_number: 'short_name',
+              route: 'long_name',
+              locality: 'long_name',
+              administrative_area_level_1: 'short_name',
+              country: 'long_name',
+              postal_code: 'short_name'
+          };
+   
+          function initAutocomplete() {
+              // Create the autocomplete object, restricting the search to geographical
+              // location types.
+              autocomplete = new google.maps.places.Autocomplete(
+                      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                      {types: ['geocode']});
+   
+              // When the user selects an address from the dropdown, populate the address
+              // fields in the form.
+              autocomplete.addListener('place_changed', fillInAddress);
+          }
+   
+          function fillInAddress() {
+              // Get the place details from the autocomplete object.
+              var place = autocomplete.getPlace();
+   
+              for (var component in componentForm) {
+                  document.getElementById(component).value = '';
+                  document.getElementById(component).disabled = false;
+              }
+   
+              // Get each component of the address from the place details
+              // and fill the corresponding field on the form.
+              for (var i = 0; i < place.address_components.length; i++) {
+                  var addressType = place.address_components[i].types[0];
+                  if (componentForm[addressType]) {
+                      var val = place.address_components[i][componentForm[addressType]];
+                      document.getElementById(addressType).value = val;
+                  }
+              }
+          }
+   
+          // Bias the autocomplete object to the user's geographical location,
+          // as supplied by the browser's 'navigator.geolocation' object.
+          function geolocate() {
+              if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(function (position) {
+                      var geolocation = {
+                          lat: position.coords.latitude,
+                          lng: position.coords.longitude
+                      };
+                      var circle = new google.maps.Circle({
+                          center: geolocation,
+                          radius: position.coords.accuracy
+                      });
+                      autocomplete.setBounds(circle.getBounds());
+                  });
+              }
+          }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoevlYpAgQSQCvqhkRS9IiCfNrhhUrF6k&libraries=places&callback=initAutocomplete"
+      async defer></script>
+<!--/.AutoComplete-->
+</script>
+<script src="./app/adminTemplate/header/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-0.13.0.min.js"></script>
 </html>

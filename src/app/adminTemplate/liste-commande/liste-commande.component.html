@@ -1,0 +1,84 @@
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-md-12 d-flex justify-content-end"> 
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Order List</h3>
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" [(ngModel)]="searchInput" class="form-control float-right" placeholder="Search">
+
+               <div class="input-group-append">
+                  <!--<button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                  </button>-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First_name</th>
+                  <th>Last_name</th>
+                  <th>Email</th>
+                  <th>Phone_number</th>
+                  <th>Address</th>
+                  <th>Company_name</th>
+                  <th>City</th>
+                  <th>Country</th>
+                  <th>PostCode</th>
+                  <th>Order_date</th>
+                  <th>Price</th>
+                  <th>State</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let commande of listCommande| filter:searchInput">
+                    <td>{{commande.id}}</td>
+                  <td>{{commande.first_name}}</td>
+                  <td>{{commande.last_name}}</td>
+                  <td>{{commande.email}}</td>
+                  <td>{{commande.phone_number}}</td>
+                  <td>{{commande.address}}</td>
+                  <td>{{commande.company_name}}</td>
+                  <td>{{commande.city}}</td>
+                  <td>{{commande.country}}</td>
+                  <td>{{commande.post_code}}</td>
+                  <td>{{commande.date_commande}}</td>
+                  <td>{{commande.prix}}</td>
+                  <td>
+                    <div *ngIf="commande.etat==true; else elseBlock">Active</div>
+<ng-template #elseBlock>Deactivated</ng-template>
+                  </td>
+                  <td>
+                    
+                      <button class="btn btn-danger btn-sm rounded-0" type="button" [disabled]="commande.etat == true" data-toggle="tooltip" data-placement="top" title="Activer"(click)="activer(commande.id)">
+                        <i class="fa fa-shopping-cart"></i>
+                      </button>
+                  </td>
+                  <td class="aaa">
+                    <a (click)="detailCommande(commande.id)">details</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>

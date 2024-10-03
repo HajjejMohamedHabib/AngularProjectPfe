@@ -1,0 +1,138 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">Wish List</h2>
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Wish List</li>
+                   </ol>
+                </nav>
+             </div>
+             <div class="col-lg-6">
+                <div class="about-slider-img">
+                   <img src="/assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <section class="ws-section-spacing">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12">
+            <h2 class="title">Wish List</h2>
+            <div class="saprater bottom-spacing">
+               <ul>
+                  <li class="saprater-box"></li>
+                  <li class="saprater-box"></li>
+                  <li class="saprater-box"></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         
+         <div class=" col-lg-12">
+            <div class="row">
+                <!--item-->
+               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" *ngFor="let favoris of favorissEtoile" id="divBlock_{{favoris.id}}">
+                  <div class="new-collection-item">
+                     <div class="new-collection-item-img">
+                        <button class="wishlist noselect" (click)="supprimerFavoris(favoris.id)">
+                           <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="-1 -1 26 26">
+                              <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"></path>
+                           </svg> -->
+                           <i class="fas fa-trash-alt" style="color:#f05036"></i>
+                        </button>
+                        <img src="http://localhost:3600/retriveImage/{{favoris.produit}}" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: zoomIn;">
+                        <a (click)="ajouterPannier(favoris)" class="add-to-cart"><i class="fas fa-cart-plus"></i>Add To Cart</a>
+                     </div>
+                     <div class="new-collection-item-content">
+                        <ul class="item-rating" *ngIf="favoris.nbreEtoile==0">
+                           <li><i class="far fa-star"></i>
+                           </li>
+                           <li><i class="far fa-star"></i>
+                           </li>
+                           <li><i class="far fa-star"></i>
+                           </li>
+                           <li><i class="far fa-star"></i>
+                           </li>
+                           <li><i class="far fa-star"></i>
+                           </li>
+                        </ul>
+                        <ul class="item-rating" *ngIf="favoris.nbreEtoile==1">
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                       </ul>
+                       <ul class="item-rating" *ngIf="favoris.nbreEtoile==2">
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                       </ul>
+                       <ul class="item-rating" *ngIf="favoris.nbreEtoile==3">
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                       </ul>
+                       <ul class="item-rating" *ngIf="favoris.nbreEtoile==4">
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="far fa-star"></i>
+                          </li>
+                       </ul>
+                       <ul class="item-rating" *ngIf="favoris.nbreEtoile==5">
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                          <li><i class="fas fa-star"></i>
+                          </li>
+                       </ul>
+                        <h5><a href="product-detail.html">{{favoris.nomProduit}}</a></h5>
+                        <span>${{favoris.prix}}</span>
+                     </div>
+                  </div>
+               </div>
+               <!--/item-->
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!---End-Offer-Banner-Section-->

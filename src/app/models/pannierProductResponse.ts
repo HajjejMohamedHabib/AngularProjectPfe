@@ -1,0 +1,28 @@
+export class PannierProductResponse{
+    id:number
+    marque:string;
+    prix:number;
+    description:string;
+    image:string;
+    nbre_piece:number;
+    nom_vendeur:string;
+    nom_category:string;
+    idVend:number;
+    cat:number;
+    nomProduit:string;
+    quantite:number
+    constructor(id:number,marque:string,prix:number,quantite:number,description:string,image:string,nbre_piece:number,nom_vendeur:string,nom_category:string,idVend:number,cat:number,nomProduit:string){
+      this.id=id;
+      this.quantite=quantite;
+      this.marque=marque;
+      this.prix=prix;
+      this.description=description;
+      this.image=image;
+      this.nbre_piece=nbre_piece;
+      this.nom_vendeur=nom_vendeur;
+      this.nom_category=nom_category;
+      this.idVend=idVend;
+      this.cat=cat; 
+      this.nomProduit=nomProduit;
+    }
+}

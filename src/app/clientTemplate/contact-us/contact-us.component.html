@@ -1,0 +1,104 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">Contact Us</h2>
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                   </ol>
+                </nav>
+             </div>
+             <div class="col-lg-6">
+                <div class="about-slider-img">
+                   <img src="/assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!--debut-->
+ <section class="ws-section-spacing">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form class="contact100-form validate-form" [formGroup]="registerForm" (ngSubmit)="ajouterContact()">
+                    <span class="contact100-form-title">
+                        Contact Us
+                    </span>
+                    <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+                        <span class="label-input100">First Name</span>
+                        <input class="input100" type="text" formControlName="firstName" placeholder="Enter your first name" [(ngModel)]="first_name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                        <span class="focus-input100"></span>
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                
+                    <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+                        <span class="label-input100">Last Name</span>
+                        <input class="input100" type="text" formControlName="lastName" placeholder="Enter your last name" [(ngModel)]="last_name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                        
+                        <span class="focus-input100"></span>
+                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+                        <span class="label-input100">Phone Number</span>
+                        <input class="input100" type="text" formControlName="phoneNumber" placeholder="Enter your phone number" [(ngModel)]="phone_number" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+                        
+                        <span class="focus-input100"></span>
+                        <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                            <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+                            <div *ngIf="f.phoneNumber.errors.pattern">Phone Number must be numeric</div>
+                            <div *ngIf="f.phoneNumber.errors.minlength">Phone Number must be 8 characters</div>
+                            <div *ngIf="f.phoneNumber.errors.maxlength">Phone Number must be 8 characters</div>
+                        </div>
+                    </div>
+                
+                    <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <span class="label-input100">Email</span>
+                        <input class="input100" type="text" formControlName="email" placeholder="Enter your email addess"[(ngModel)]="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                       
+                        <span class="focus-input100"></span>
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                
+                    <div class="wrap-input100 validate-input" data-validate="Message is required">
+                        <span class="label-input100">Message</span>
+                        <textarea class="input100" formControlName="message" placeholder="your message here..." [(ngModel)]="message" [ngClass]="{ 'is-invalid': submitted && f.message.errors }"></textarea>
+                       
+                        <span class="focus-input100"></span>
+                        <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                            <div *ngIf="f.message.errors.required">Message is required</div>
+                        </div>
+                    </div>
+                
+                    <div class="container-contact100-form-btn">
+                        <button class="contact100-form-btn" type="submit">
+                            <span>
+                                Submit
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</section>
+ <!--fin-->
+ <!--
+<div class="container-contact100">
+    <div class="wrap-contact100"></div>
+
+</div>
+-->

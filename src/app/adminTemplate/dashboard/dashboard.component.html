@@ -1,0 +1,196 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <!--card top left-->
+          <div class="card" *ngIf="role=='Admin'">
+            <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title">Sales</h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex">
+                <p class="d-flex flex-column">
+                 
+                  <span text-bold text-lg class="text-bold text-lg">${{totalSales}}</span>
+                  <span>total sales price</span>
+                </p>
+                <p class="ml-auto d-flex flex-column text-right">
+                  <span class="text-success">
+                    <i class="fas fa-arrow-up"></i>{{productMax}}%
+                  </span>
+                  <span class="text-muted">best-selling product:{{nomProductMax}}</span>
+                </p>
+              </div>
+              <!-- /.d-flex -->
+
+
+              <div class="position-relative mb-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <canvas id="myChart1" height="250" width="407" style="display: block; height: 200px; width: 326px;" class="chartjs-render-monitor"></canvas>
+              </div>
+
+              <div class="d-flex flex-row justify-content-end">
+              </div>
+            </div>
+          </div>
+          <!--/fin card top left-->
+          <!--card top left vendeur-->
+          <div class="card" *ngIf="role=='Vendeur'">
+            <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title">Sales</h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex">
+                <p class="d-flex flex-column">
+                 
+                  <span text-bold text-lg class="text-bold text-lg">${{tsp}}</span>
+                  <span>total sales price</span>
+                </p>
+                <p class="ml-auto d-flex flex-column text-right">
+                  <span class="text-success">
+                    <i class="fas fa-arrow-up"></i>{{psm.quantite/qtv*100}}%
+                  </span>
+                  <span class="text-muted">best-selling product:{{psm.nomProduit}}</span>
+                </p>
+              </div>
+              <!-- /.d-flex -->
+
+
+              <div class="position-relative mb-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <canvas id="myChart1Vendeur" height="250" width="407" style="display: block; height: 200px; width: 326px;" class="chartjs-render-monitor"></canvas>
+              </div>
+
+              <div class="d-flex flex-row justify-content-end">
+              </div>
+            </div>
+          </div>
+          <!--/card top left vendeur-->
+          
+          <!-- /.card -->
+        <!--card buttom left-->
+          <div class="card" *ngIf="role=='Admin'">
+            <div class="card-header border-0">
+                <div class="text-bold text-lg">${{totalSalesMonthP}}</div>
+              <div>total sales price Per Month</div>
+              <div class="card-tools">
+                <select [(ngModel)]="moisP" (change)="onChange2($event)" class="ng-pristine ng-valid ng-touched">
+                    <option _ngcontent-uhx-c86="" value="1" ng-reflect-value="All">Jan</option>
+                    <option _ngcontent-uhx-c86="" value="2" ng-reflect-value="LowToHigh">Feb</option>
+                    <option _ngcontent-uhx-c86="" value="3" ng-reflect-value="HighToLow">Mar</option>
+                    <option _ngcontent-uhx-c86="" value="4" ng-reflect-value="HighToLow">Apr</option>
+                    <option _ngcontent-uhx-c86="" value="5" ng-reflect-value="HighToLow">May</option>
+                    <option _ngcontent-uhx-c86="" value="6" ng-reflect-value="HighToLow">June</option>
+                    <option _ngcontent-uhx-c86="" value="7" ng-reflect-value="HighToLow">July</option>
+                    <option _ngcontent-uhx-c86="" value="8" ng-reflect-value="HighToLow">Aug</option>
+                    <option _ngcontent-uhx-c86="" value="9" ng-reflect-value="HighToLow">Sept</option>
+                    <option _ngcontent-uhx-c86="" value="10" ng-reflect-value="HighToLow">Oct</option>
+                    <option _ngcontent-uhx-c86="" value="11" ng-reflect-value="HighToLow">Nov</option>
+                    <option _ngcontent-uhx-c86="" value="12" ng-reflect-value="HighToLow">Dec</option>
+                </select>
+              </div>
+            </div>
+            <div class="card-body table-responsive p-0">
+              <canvas id="myChart3"></canvas>
+            </div>
+          </div>
+          <!--/fin card buttom left-->
+          <!-- /.card -->
+        </div>
+        <!-- /.col-md-6 -->
+        <div class="col-lg-6">
+          <!--card top right vendeur-->
+          <div class="card" *ngIf="role=='Vendeur'">
+            <div class="card-header border-0">
+                <div class="text-bold text-lg">${{totalSalesVendeurMonth}}</div>
+              <div>total sales price Per Seller Per Month</div>
+              <div class="card-tools">
+                <select [(ngModel)]="mois" (change)="onChange3($event)" class="ng-pristine ng-valid ng-touched">
+                    <option _ngcontent-uhx-c86="" value="1" ng-reflect-value="All">Jan</option>
+                    <option _ngcontent-uhx-c86="" value="2" ng-reflect-value="LowToHigh">Feb</option>
+                    <option _ngcontent-uhx-c86="" value="3" ng-reflect-value="HighToLow">Mar</option>
+                    <option _ngcontent-uhx-c86="" value="4" ng-reflect-value="HighToLow">Apr</option>
+                    <option _ngcontent-uhx-c86="" value="5" ng-reflect-value="HighToLow">May</option>
+                    <option _ngcontent-uhx-c86="" value="6" ng-reflect-value="HighToLow">June</option>
+                    <option _ngcontent-uhx-c86="" value="7" ng-reflect-value="HighToLow">July</option>
+                    <option _ngcontent-uhx-c86="" value="8" ng-reflect-value="HighToLow">Aug</option>
+                    <option _ngcontent-uhx-c86="" value="9" ng-reflect-value="HighToLow">Sept</option>
+                    <option _ngcontent-uhx-c86="" value="10" ng-reflect-value="HighToLow">Oct</option>
+                    <option _ngcontent-uhx-c86="" value="11" ng-reflect-value="HighToLow">Nov</option>
+                    <option _ngcontent-uhx-c86="" value="12" ng-reflect-value="HighToLow">Dec</option>
+                </select>
+              </div>
+            </div>
+            <div class="card-body">
+              <canvas id="myChartVP"></canvas>
+              </div>
+              </div>
+             
+          <!--/fin card top right vendeur-->
+          <!--card top ridht-->
+          <div class="card" *ngIf="role=='Admin'">
+            <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title">Sales Per Seller</h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex">
+                <p class="d-flex flex-column">
+                  <span class="text-bold text-lg">${{totalSales}}</span>
+                  <span>total sales price</span>
+                </p>
+                <p class="ml-auto d-flex flex-column text-right">
+                  <span class="text-success">
+                    <i class="fas fa-arrow-up"></i> {{venteMaxVendeur}}%
+                  </span>
+                  <span class="text-muted">top rated seller:{{nomVendeurMax}}</span>
+                </p>
+              </div>
+              <!-- /.d-flex -->
+
+              <div class="position-relative mb-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <canvas id="myChart" height="250" style="display: block; height: 200px; width: 326px;" width="407" class="chartjs-render-monitor"></canvas>
+              </div>
+
+              <div class="d-flex flex-row justify-content-end">
+              </div>
+            </div>
+          </div>
+          <!--/fin card top right-->
+          <!-- /.card -->
+            <!--card buttom right-->
+          <div class="card" *ngIf="role=='Admin'">
+            <div class="card-header border-0">
+                <div class="text-bold text-lg">${{totalSalesMonth}}</div>
+              <div>total sales price Per Seller Per Month</div>
+              <div class="card-tools">
+                
+                <select [(ngModel)]="mois" (change)="onChange($event)" class="ng-pristine ng-valid ng-touched">
+                    <option _ngcontent-uhx-c86="" value="1" ng-reflect-value="All">Jan</option>
+                    <option _ngcontent-uhx-c86="" value="2" ng-reflect-value="LowToHigh">Feb</option>
+                    <option _ngcontent-uhx-c86="" value="3" ng-reflect-value="HighToLow">Mar</option>
+                    <option _ngcontent-uhx-c86="" value="4" ng-reflect-value="HighToLow">Apr</option>
+                    <option _ngcontent-uhx-c86="" value="5" ng-reflect-value="HighToLow">May</option>
+                    <option _ngcontent-uhx-c86="" value="6" ng-reflect-value="HighToLow">June</option>
+                    <option _ngcontent-uhx-c86="" value="7" ng-reflect-value="HighToLow">July</option>
+                    <option _ngcontent-uhx-c86="" value="8" ng-reflect-value="HighToLow">Aug</option>
+                    <option _ngcontent-uhx-c86="" value="9" ng-reflect-value="HighToLow">Sept</option>
+                    <option _ngcontent-uhx-c86="" value="10" ng-reflect-value="HighToLow">Oct</option>
+                    <option _ngcontent-uhx-c86="" value="11" ng-reflect-value="HighToLow">Nov</option>
+                    <option _ngcontent-uhx-c86="" value="12" ng-reflect-value="HighToLow">Dec</option>
+                </select>
+              </div>
+            </div>
+            <div class="card-body">
+              <canvas id="myChart2"></canvas>
+        <!-- /.col-md-6 -->
+      </div>
+    </div>
+      <!-- /.row -->
+    </div>
+
+    <!-- /.container-fluid -->
+  </div>

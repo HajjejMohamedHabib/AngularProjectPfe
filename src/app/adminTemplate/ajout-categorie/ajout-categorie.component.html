@@ -1,0 +1,24 @@
+<div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Add Category</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form [formGroup]="registerForm" (ngSubmit)="AjouterCategorie()">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1"> Category Name</label>
+          <input type="text" class="form-control" id="nom_categorie" formControlName="nom_categorie" [(ngModel)]="nom_categorie" placeholder="Enter category name" [ngClass]="{ 'is-invalid': submitted && f.nom_categorie.errors }">
+          <div *ngIf="submitted && f.nom_categorie.errors" class="invalid-feedback">
+            <div *ngIf="f.nom_categorie.errors.required">Category Name is required</div>
+        </div>
+        </div>
+          
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,73 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">Order Details</h2>
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                      <li class="breadcrumb-item"><a routerLink="/orderHistory">Order History</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Order Details</li>
+                   </ol>
+                </nav>
+             </div>
+             <div class="col-lg-6">
+                <div class="about-slider-img">
+                   <img src="/assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <section class="ws-section-spacing">
+    <div class="container">
+       <div class="row">
+          <div class="my-cart">
+             <h2>Shopping Cart</h2>
+             <table class="table-responsive">
+                <thead>
+                   <tr>
+                      <th class="cart-product">Product</th>
+                      <th class="cart-price">Name</th>
+                     
+                      <th class="cart-price">Price</th>
+                      <th class="cart-name">Quantity</th>
+                      <th class="cart-Total">Total</th>
+                      <th class="cart-Total">Action</th>
+                   </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let p of commandeItems" id="trBlock_{{p.id}}">
+                      <td class="cart-img">
+                         <div class="cart-img-bg"><img src="http://localhost:3600/retriveImage/{{p.produit}}" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: zoomIn;"></div>
+                      </td>
+                      <td class="cart-name-price">{{p.nomProduit}}</td>
+                     
+                      <td class="cart-product-price"><a href="#">${{p.prix}}</a></td>
+                      <td class="cart-quantity">
+                         {{p.quantite}}
+                      </td>
+                      <td class="cart-total-price">
+                        ${{p.quantite*p.prix}}
+                      </td>
+                      <td>
+                         
+                         <div class="rating rating2"><!--
+		--><a href="javascript:void(0);" id="1" (click)="saveEtoiles(5,p.produit)" title="Give 5 stars">★</a><!--
+		--><a href="javascript:void(0);" id="2" (click)="saveEtoiles(4,p.produit)" title="Give 4 stars">★</a><!--
+		--><a href="javascript:void(0);" id="3" (click)="saveEtoiles(3,p.produit)" title="Give 3 stars">★</a><!--
+		--><a href="javascript:void(0);" id="4" (click)="saveEtoiles(2,p.produit)" title="Give 2 stars">★</a><!--
+		--><a href="javascript:void(0);" id="5" (click)="saveEtoiles(1,p.produit)" title="Give 1 star">★</a>
+	</div>
+                      </td>
+                   </tr>
+                   <!--item-->
+                   
+                </tbody>
+             </table>
+          </div>
+       </div>
+    </div>
+ </section>

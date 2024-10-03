@@ -1,0 +1,29 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">Login</h2>
+             </div>
+             <div class="col-lg-6">
+                <div class="about-slider-img">
+                   <img src="assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <section class="ws-section-spacing" id="backC">
+<h1>Angular Bot</h1>
+<ng-container *ngFor="let message of messages | async">
+<div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+'to': message.sentBy === 'user' }">
+{{ message.content }}
+</div>
+</ng-container>
+ 
+<label for="nameField">Your Message</label>
+<input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
+<button (click)="sendMessage()">Send</button>
+</section>

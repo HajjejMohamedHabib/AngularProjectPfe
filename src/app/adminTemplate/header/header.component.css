@@ -1,0 +1,17 @@
+.addscrollbar{
+    overflow-y: scroll; 
+    max-height: 500px;
+    overflow-x: hidden;
+}
+.dropdown-menu{
+min-width: 460px !important;
+}
+#spg{
+    padding-left: 10px;
+}
+.imgt{
+    border-radius: 100%;
+    max-width: 50px;
+    max-height: 50px;
+    border: solid;
+}

@@ -1,0 +1,11 @@
+button{
+    background-color: #f05036;
+    width: -webkit-fill-available;
+    border-radius: 10px 10px 0 0;
+    border: white;
+}
+.btn-success_customized:hover {
+    color: #fff;
+    background-color: #f05036cc;
+    border-color: #f05036;
+}

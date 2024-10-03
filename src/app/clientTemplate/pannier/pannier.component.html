@@ -1,0 +1,83 @@
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">My Cart</h2>
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">My Cart</li>
+                   </ol>
+                </nav>
+             </div>
+             <div class="col-lg-6">
+                <div class="about-slider-img">
+                   <img src="assets/assetsFront/images/about-slider-img.png" class="wow fadeInRight" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: fadeInRight;">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <section class="ws-section-spacing">
+    <div class="container">
+       <div class="row">
+          <div class="my-cart">
+             <h2>Shopping Cart</h2>
+             <table class="table-responsive">
+                <thead>
+                   <tr>
+                      <th class="cart-product">Product</th>
+                      <th class="cart-name">Name</th>
+                      <th class="cart-price">Price</th>
+                      <th class="cart-quantity">  Quantity</th>
+                      <th class="cart-Total">Total</th>
+                      <th class="cart-action">Action</th>
+                   </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let p of pannier" id="trBlock_{{p.id}}">
+                      <td class="cart-img">
+                         <div class="cart-img-bg"><img src="http://localhost:3600/retriveImage/{{p.id}}" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-iteration-count: 1; animation-name: zoomIn;"></div>
+                      </td>
+                      <td class="cart-name-product"><a href="#">{{p.marque}}</a></td>
+                      <td class="cart-product-price"><a href="#">${{p.prix}}</a></td>
+                      <td class="cart-quantity">
+                         <div class="product_quantity">
+                            <div class="quanty_form">
+                               <div class="product-quantity d-flex">
+                                  <button type="button" class="sub" (click)="minimiserQuantite(p.id,p.prix)">-</button>
+                                  <input type="text" value={{p.quantite}} id="quantite_{{p.id}}" disabled="disabled" style="background-color: white !important;">
+                                  <button type="button" class="add" (click)="maximiserQuantite(p.id,p.prix)">+</button>
+                               </div>
+                            </div>
+                         </div>
+                      </td>
+                      <td class="cart-total-price">
+                        <div class="product_quantity">
+                            <div class="quanty_form">
+                               <div class="product-quantity d-flex">
+                                  <input type="text" value={{p.prix*p.quantite}} id="prixTotal_{{p.id}}" disabled="disabled" style="width: 70px !important;;background-color: white !important;font-size: 22px;
+                                  color: #212121;
+                                  font-weight: 600;">
+                               </div>
+                            </div>
+                         </div>
+                      </td>
+                      <td class="cart-action"><a><i class="flaticon-delete" (click)="deleteItemPannier(p.id,p.idPannierProduit)"></i> </a></td>
+                   </tr>
+                   <!--item-->
+                   
+                </tbody>
+             </table>
+             <div class="total-price justify-content-between">
+                <a routerLink="/shop" class="add-cart active">Continue Shopping</a>
+                <p class="grand-total">Grand Total : ${{grandTotal}}</p>
+                <a (click)="redirectTo()" class="add-cart">Proceed To Checkout</a>
+            
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>

@@ -1,0 +1,12 @@
+#section-spacing{
+    padding: 200px 0 40px;
+}
+
+.btn-outline-orange{
+    color: #fd800e;
+    border-color: #fd800e;
+}
+.btn-outline-orange:hover{
+    color: #fff;
+    background: #fd800e;
+}

@@ -1,0 +1,70 @@
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-md-12 d-flex justify-content-end" *ngIf="role=='Admin'">
+            
+                  <a routerLink="/ajoutCategorie">Add Category</a>
+             
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Category List</h3>
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" [(ngModel)]="searchInput" class="form-control float-right" placeholder="Search">
+
+               <div class="input-group-append">
+                  <!--<button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                  </button>-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Category Name</th>
+                  <th>Number of Parts</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let categorie of categories | filter:searchInput" id="trBlock_{{categorie.id}}">
+                  <td>{{categorie.id}}</td>
+                  <td>{{categorie.nom_categorie}}</td>
+                  <td>{{categorie.nbre_piece}}</td>
+                  <td><button class="btn btn-success btn-sm rounded-0" type="button" *ngIf="role=='Admin'" data-toggle="tooltip" data-placement="top" title="Edit"(click)="modifCategorie(categorie.id)">
+                      <i class="fa fa-edit"></i></button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger btn-sm rounded-0"  type="button" *ngIf="role=='Admin'" data-toggle="tooltip" data-placement="top" title="Delete"(click)="deleteCategorie(categorie.id)">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-success btn-sm rounded-0"  type="button" data-toggle="tooltip" data-placement="top" title="display"(click)="afficheProduits(categorie.id)">
+                      DisplayProducts
+                    </button>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>

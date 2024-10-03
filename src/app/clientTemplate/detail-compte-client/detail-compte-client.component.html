@@ -1,0 +1,157 @@
+
+<!------ Include the above in your HEAD tag ---------->
+<section class="page-slider">
+    <div class="hero-banner-content">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6">
+                <h2 class="banner-title">Compte</h2>
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Detail Client Account</li>
+                   </ol>
+                </nav>
+             </div>
+             <div class="col-lg-6">
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+<div class="container emp-profile">
+    <form [formGroup]="registerForm" (ngSubmit)="modifierClient()">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="http://localhost:3600/retrivephoto/{{response.id}}" alt="">
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" formControlName="file" [(ngModel)]="photo" (change)="onFileChanged($event)"/>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                            <h5>
+                                {{response.first_name}} {{response.last_name}}
+                            </h5>
+                            <h6>
+                               
+                            </h6>
+                            
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="button" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" (click)="modifier()"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>First Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="inputClass" [disabled]="etatModifier==false" formControlName="firstName" [(ngModel)]="response.first_name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Last Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="inputClass" [disabled]="etatModifier==false" formControlName="lastName" [(ngModel)]="response.last_name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                                        <div *ngIf="submitted && f.lastNameerrors" class="invalid-feedback">
+                                            <div *ngIf="f.lastName.errors.required">First Name is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="inputClass" [disabled]="etatModifier==false" formControlName="email" [(ngModel)]="response.username" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.email.errors.required">Email is required</div>
+                                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                            <div *ngIf="f.email.errors.existeUser1">Email exist</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Phone Number</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="inputClass" [disabled]="etatModifier==false" formControlName="phoneNumber" [(ngModel)]="response.phone_number" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+                                        <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                                            <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+                                            <div *ngIf="f.phoneNumber.errors.pattern">Phone Number must be numeric</div>
+                                            <div *ngIf="f.phoneNumber.errors.minlength">Phone Number must be 8 characters</div>
+                                            <div *ngIf="f.phoneNumber.errors.maxlength">Phone Number must be 8 characters</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Address</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="inputClass" [disabled]="etatModifier==false" formControlName="address" [(ngModel)]="response.address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                                        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                                            <div *ngIf="f.address.errors.required">Address is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="etatModifier==true">
+                                    <div class="col-md-6">
+                                        <label>Password</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="password" class="inputClass" formControlName="password" [(ngModel)]="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                            <div *ngIf="f.password.errors.required">Password is required</div>
+                                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="etatModifier==true">
+                                    <div class="col-md-6">
+                                        <label>Confirm Password</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="password" class="inputClass" formControlName="confirmPassword" [(ngModel)]="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div *ngIf="etatModifier==true">
+                                        <button class="btn btn-warning" type="submit">Save</button>
+                                    </div>
+                                
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        
+    </form>           
+</div>
